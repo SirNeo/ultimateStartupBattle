@@ -10,12 +10,20 @@ import { mapState } from 'vuex'
 import firebase from 'firebase'
 import firebaseui from 'firebaseui'
 import { ui } from '../initFirebase'
-// import router from '../router'
 
 const uiConfig = {
   callbacks: {
     // Called when the user has been successfully signed in
     signInSuccess (user, credential, redirectUrl) {
+
+      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        localStorage.token = idToken;
+        // console.log('Nuevo token:' + idToken);
+      }).catch(function(error) {
+        console.log('Error obteniendo token' + e);
+        // Handle error
+      }); 
+
       // router.push('/')
       // Do not redirect.
       return false

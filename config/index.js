@@ -25,8 +25,8 @@ module.exports = {
     // linting errors and warnings will be shown in the console.
     useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
-    // in the browser.
-    showEslintErrorsInOverlay: false,
+    // in the browser.  
+    showEslintErrorsInOverlay: true,
 
     /**
      * Source Maps

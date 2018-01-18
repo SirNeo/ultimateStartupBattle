@@ -7,6 +7,9 @@
 
 <script>
 import AppNav from '@/components/AppNav'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'firebaseui/dist/firebaseui.css'
 
 export default {
   name: 'app',

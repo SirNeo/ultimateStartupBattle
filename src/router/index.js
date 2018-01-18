@@ -7,8 +7,6 @@ import Login from '@/components/Login';
 import Perfil from '@/components/Perfil';
 import PublicBattles from '@/components/PublicBattles';
 import PrivateBattles from '@/components/PrivateBattles';
-// import Callback from '@/components/Callback';
-// import Auth from '@/components/Auth';
 
 Vue.use(VueRouter);
 
@@ -18,9 +16,7 @@ const router = new VueRouter({
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     { path: '/', component: PublicBattles },
-    { path: '/private-battles', component: PrivateBattles },
-    // { path: '/callback', component: Callback },
-    // { path: '/auth', component: Auth },
+    { path: '/private-battles', component: PrivateBattles, meta: { requiresAuth: true } },
     {
       path: '/login',
       component: Login,
@@ -37,6 +33,7 @@ const router = new VueRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.user) {
           firebase.auth().signOut();
+          localStorage.delete('token');
           next('/');
         } else {
           next('/login');

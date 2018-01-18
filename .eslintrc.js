@@ -48,6 +48,7 @@ module.exports = {
     // windows linebreaks when not in production environment
     //"linebreak-style": ["error", process.env.NODE_ENV === 'prod' ? "unix" : "windows"]
     "linebreak-style": 0,
-    "no-console": 0
+    "no-console": 0,
+    
   }
 }

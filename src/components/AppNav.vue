@@ -4,14 +4,16 @@
       <router-link to="/" class="logo">
         <img src="static/favicon-32x32.png" class="img-logo" /> 
       </router-link>
+      <router-link to="/" class="logo">
+        <span class="text-uppercase">Vue con auth</span>
+      </router-link>
       <button class="btn btn-danger log botones" v-show="user" @click="handleLogout()">Logout</button>
       <button class="btn btn-info log botones" v-show="!user" @click="handleLogin()">Login</button>
       <img v-show="user" :src="user && user.photoURL" class="botones img-user" /> 
-      <label v-text="user && user.displayName" class="botones label-header" />
+      <router-link to="/Perfil" class="enlace">
+        <label v-text="user && user.displayName" class="botones label-header" />
+      </router-link>
     </div>
-    <!--<p>{{user && user.name}}</p> 
-    <p>{{user && user.email}}</p> 
-    <p>{{user && user.userId}}</p> -->
   </nav>
 </template>
 
@@ -22,13 +24,6 @@ export default {
   name: 'app-nav',
   data() {
    return {
-     /*
-     photo: '',
-     userId: '',
-     name: '',
-     email: '',
-     user: {}
-     */
    }
   },
   computed: {
@@ -49,14 +44,6 @@ export default {
     },
     handleLogout() {
       this.$router.push('/logout');
-      /*
-      firebase.auth().signOut();
-      this.name = '';
-      this.email = '';
-      this.photo = '';
-      this.userId = '';
-      this.user = {};
-      */
     },
   },
 };
@@ -66,6 +53,10 @@ export default {
 <style scoped>
 nav {
   background-color: #74b0fb;
+}
+
+.navbar-header {
+  width: 100%;
 }
 
 .navbar-right { margin-right: 0px !important}
@@ -98,6 +89,15 @@ nav {
 .img-logo {
   margin-left: 10px;
   margin-top: 8px;
+}
+
+.enlace {
+  color: black;
+}
+
+.enlace:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
     
 </style>

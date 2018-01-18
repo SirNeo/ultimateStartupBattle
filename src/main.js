@@ -1,13 +1,14 @@
-// polyfills
-// import 'es6-promise/auto'
-// import 'weakmap' // for vuexfire, using (imports-loader)
-
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
+import BootstrapVue from 'bootstrap-vue';
+import FirebaseUI from 'firebaseui';
 import App from './App';
 import router from './router';
 import store from './store';
 import './initFirebase';
+
+Vue.use(BootstrapVue);
+Vue.use(FirebaseUI);
 
 // Deshabilita un aviso de produccion en la consola
 Vue.config.productionTip = false;
